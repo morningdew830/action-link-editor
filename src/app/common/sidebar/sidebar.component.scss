@@ -1,0 +1,66 @@
+.logo {
+    position: relative;
+    padding: 5px;
+    z-index: 4;
+    .simple-text {
+        color: white;
+        text-transform: uppercase;
+        padding: 5px 0px;
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        white-space: nowrap;
+        font-weight: 400;
+        line-height: 30px;
+        overflow: hidden;
+    }
+}
+
+.nav {
+    margin-top: 15px;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    &::before {
+        display: table;
+        content: " ";
+    }
+    &::after {
+        clear: both;
+    }
+    li.active>a {
+        color: white;
+        background-color: #e91e63;
+        box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+    }
+    li:first-child>a {
+        margin: 0 15px;
+        border-radius: 3px;
+    }
+    i {
+        font-size: 24px;
+        float: left;
+        margin-right: 15px;
+        line-height: 30px;
+        width: 30px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    p {
+        margin: 0;
+        line-height: 30px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
