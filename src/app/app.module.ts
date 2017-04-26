@@ -1,11 +1,14 @@
+// Angular Core Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 
 // Third-party Modules
+import { MaterialModule } from '@angular/material';
+import { MdDataTableModule } from 'ng2-md-datatable';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // -- Routing and App Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -13,17 +16,13 @@ import { AppRoutingModule } from './app-routing.module';
 // -- App Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './common/header/header.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
-import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent
+    SidebarComponent
   ],
   imports: [
     // Angular related
@@ -31,12 +30,14 @@ import { FooterComponent } from './common/footer/footer.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
 
     // Routing
     AppRoutingModule,
 
     // Third-party Libraries
+    MaterialModule.forRoot(),
+    FlexLayoutModule,
+    MdDataTableModule
   ],
   providers: [
   ],

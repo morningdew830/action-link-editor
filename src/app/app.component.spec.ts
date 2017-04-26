@@ -2,8 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './common/footer/footer.component';
-import { HeaderComponent } from './common/header/header.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 
 describe('AppComponent', () => {
@@ -11,9 +9,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       providers: [],
       declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent
+        AppComponent
       ],
       imports: [
         RouterTestingModule,

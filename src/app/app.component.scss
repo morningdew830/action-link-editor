@@ -30,10 +30,6 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.app-toolbar-filler {
-    flex: 1 1 auto;
-}
-
 .app-toolbar-menu {
     padding: 0 14px 0 14px;
     color: black;
@@ -56,9 +52,13 @@
     text-decoration: none;
 }
 
+.app-header {
+    border-bottom: 1px solid #ccc;
+}
+
 .app-content {
     padding: 20px;
-    height: calc(100vh - 168px);
+    height: calc(100vh - 170px);
 }
 
 .app-footer {
@@ -77,4 +77,5 @@
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
+    border-top: 1px solid #ccc;
 }

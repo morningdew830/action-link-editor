@@ -1,19 +1,58 @@
 <md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Shiba Inu</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
+  <md-card-header [fxLayout]="'row'">
+    <div fxFlex></div>
+    <div><h4>Action Links List</h4></div>
+    <div fxFlex></div>
   </md-card-header>
-  <img md-card-image src="assets/img/examples/shiba2.jpg">
-  <md-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </md-card-content>
   <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
+    <div fxFlex></div>
+    <div class="action-group">
+      <button md-mini-fab><md-icon>add</md-icon></button>
+      <button md-mini-fab [disabled]="_disabledDeleteButton"><md-icon>delete</md-icon></button>
+    </div>
   </md-card-actions>
+  <md-card-content>
+    <ng2-md-datatable selectable (selectionChange)="_onSelectionChanged($event)">
+      <ng2-md-datatable-header>
+        <ng2-md-datatable-column sortValue="article">Surface As</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortValue="product">Display Text</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortValue="quantity">Action Type</ng2-md-datatable-column>
+        <ng2-md-datatable-column sortValue="quantity">Edit</ng2-md-datatable-column>
+      </ng2-md-datatable-header>
+      <tbody>
+        <ng2-md-datatable-row selectableValue="1">
+          <td>Link</td>
+          <td>Angular Material2</td>
+          <td>View</td>
+          <td><button md-icon-button (click)="$event.preventDefault();"><md-icon>mode_edit</md-icon></button></td>
+        </ng2-md-datatable-row>
+        <ng2-md-datatable-row selectableValue="2">
+          <td>Button</td>
+          <td>Subscribe</td>
+          <td>URL</td>
+          <td><button md-icon-button (click)="$event.preventDefault();"><md-icon>mode_edit</md-icon></button></td>
+        </ng2-md-datatable-row>
+        <ng2-md-datatable-row selectableValue="3">
+          <td>Icon</td>
+          <td>Apple</td>
+          <td>Alert</td>
+          <td><button md-icon-button (click)="$event.preventDefault();"><md-icon>mode_edit</md-icon></button></td>
+        </ng2-md-datatable-row>
+        <ng2-md-datatable-row selectableValue="4">
+          <td>Link</td>
+          <td>My Google Calendar</td>
+          <td>Task</td>
+          <td><button md-icon-button (click)="$event.preventDefault();"><md-icon>mode_edit</md-icon></button></td>
+        </ng2-md-datatable-row>
+      </tbody>
+    </ng2-md-datatable>
+    <ng2-md-datatable-pagination
+      [currentPage]="1"
+      [itemsPerPage]="5"
+      [itemsCount]="700"
+      [itemsPerPageChoices]="[5,10,20,50]"
+      [itemsPerPageFirstChoice]="10"
+      >
+    </ng2-md-datatable-pagination>
+  </md-card-content>
 </md-card>

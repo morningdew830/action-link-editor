@@ -10,3 +10,13 @@ body {
     font-family: 'Roboto' !important;
     font-size: 18px !important;
 }
+
+.filler {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.mat-toolbar {
+    background: #eee !important;
+}
