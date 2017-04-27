@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 import { ActionLink, ViewAction } from '../services/action-link.model';
 
 @Component({
@@ -15,8 +15,7 @@ export class EditActionLinkComponent implements OnInit {
   public _originalActionLink: ActionLink;
   public _editingActionLink: ActionLink;
 
-  constructor(
-  ) {
+  constructor( public _dialogRef: MdDialogRef<any> ) {
     this._surfaceTypes = ['Link', 'Button', 'Icon'];
     this._actionTypes = ['View', 'Edit', 'URL', 'Alert', 'Task'];
     this._objectTypes = ['Page', 'Chart', 'Metric'];
@@ -55,4 +54,5 @@ export class EditActionLinkComponent implements OnInit {
   public _onEditActionLinkSubmit = () => {
     console.log('submit');
   }
+
 }

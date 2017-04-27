@@ -66,7 +66,7 @@
 
 <md-dialog-actions>
   <div class="row bottom-actions">
-    <button md-raised-button>Cancel</button>
+    <button md-raised-button (click)="_dialogRef.close()">Cancel</button>
     <div fxFlex></div>
     <button md-raised-button color="accent" type="submit" [disabled]="!editForm.form.valid">Save</button>
   </div>
