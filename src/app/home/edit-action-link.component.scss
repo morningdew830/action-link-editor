@@ -1,0 +1,34 @@
+.row {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.surface-type {
+  width: 30%;
+  margin-right: 5%;
+}
+
+.display-text {
+  width: 64%;
+}
+
+.action-type {
+  width: 30%;
+  margin-right: 5%;
+}
+
+.radio-group {
+  display: inline-flex;
+  flex-direction: row;
+  margin: 30px;
+  width: calc(100% - 60px);
+  .radio-button {
+    width: 50%;
+  }
+}
+
+.object-type, .what-view, .view-type {
+  display: block;
+  margin-bottom: 40px;
+  width: 30%;
+}
