@@ -23,45 +23,51 @@
           {{actionType}}
         </md-option>
       </md-select>
-      <button md-raised-button type="button" class="">Create and Configure New Action</button>
+      <button md-raised-button color="accent" type="button">Create and Configure New Action</button>
     </div>
 
     <div class="row">
 
-      <md-tab-group>
-        <md-tab [label]="action.actionType" *ngFor="let action of _editingActionLink.actions; let i=index;">
+      <md-card>
+        <md-tab-group>
+          <md-tab [label]="action.actionType" *ngFor="let action of _editingActionLink.actions; let i=index;">
 
-          <md-radio-group class="radio-group" [(ngModel)]="action.objectClass" name="objectClass{{i}}">
-            <md-radio-button class="radio-button" value="caller">Caller Object</md-radio-button>
-            <md-radio-button class="radio-button" value="specify">Specify Object</md-radio-button>
-          </md-radio-group>
+            <md-radio-group class="radio-group" [(ngModel)]="action.objectClass" name="objectClass{{i}}">
+              <md-radio-button class="radio-button" value="caller">Caller Object</md-radio-button>
+              <md-radio-button class="radio-button" value="specify">Specify Object</md-radio-button>
+            </md-radio-group>
 
-          <md-select class="object-type" #objectType placeholder="Type of Object" [(ngModel)]="action.objectType" name="objectType{{i}}"
-            required>
-            <md-option *ngFor="let objectType of _objectTypes" [value]="objectType">
-              {{objectType}}
-            </md-option>
-          </md-select>
+            <md-select class="object-type" #objectType placeholder="Type of Object" [(ngModel)]="action.objectType" name="objectType{{i}}"
+              required>
+              <md-option *ngFor="let objectType of _objectTypes" [value]="objectType">
+                {{objectType}}
+              </md-option>
+            </md-select>
 
-          <md-input-container class="what-view">
-            <input mdInput placeholder="What to View" [(ngModel)]="action.whatToView" name="whatToView{{i}}" required>
-          </md-input-container>
+            <md-input-container class="what-view">
+              <input mdInput placeholder="What to View" [(ngModel)]="action.whatToView" name="whatToView{{i}}" required>
+            </md-input-container>
 
-          <md-select class="view-type" #viewType placeholder="Where to View" [(ngModel)]="action.whereToView" name="whereToView{{i}}"
-            required>
-            <md-option *ngFor="let viewType of _viewTypes" [value]="viewType">
-              {{viewType}}
-            </md-option>
-          </md-select>
+            <md-select class="view-type" #viewType placeholder="Where to View" [(ngModel)]="action.whereToView" name="whereToView{{i}}"
+              required>
+              <md-option *ngFor="let viewType of _viewTypes" [value]="viewType">
+                {{viewType}}
+              </md-option>
+            </md-select>
 
-        </md-tab>
-      </md-tab-group>
+            <button md-raised-button color="primary" type="button" class="delete-action">Delete Action</button>
+          </md-tab>
+        </md-tab-group>
+      </md-card>
     </div>
+
   </form>
 </md-dialog-content>
 
 <md-dialog-actions>
-  <button md-raised-button >Cancel</button>
-  <div fxFlex></div>
-  <button md-raised-button color="primary" type="submit" [disabled]="!editForm.form.valid">Save</button>
+  <div class="row bottom-actions">
+    <button md-raised-button>Cancel</button>
+    <div fxFlex></div>
+    <button md-raised-button color="accent" type="submit" [disabled]="!editForm.form.valid">Save</button>
+  </div>
 </md-dialog-actions>

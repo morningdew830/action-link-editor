@@ -1,5 +1,4 @@
 .row {
-  margin: 10px 0;
   padding: 10px;
 }
 
@@ -20,15 +19,29 @@
 .radio-group {
   display: inline-flex;
   flex-direction: row;
-  margin: 30px;
-  width: calc(100% - 60px);
+  margin: 30px 0;
+  width: 100%;
   .radio-button {
     width: 50%;
   }
 }
 
-.object-type, .what-view, .view-type {
+.object-type, .what-view {
   display: block;
-  margin-bottom: 40px;
+  margin: 20px 0 30px 0;
   width: 30%;
+}
+
+.view-type {
+  margin: 20px 0 30px 0;
+  width: 30%;
+}
+
+.delete-action {
+  float: right;
+  margin-top: 15px;
+}
+
+.bottom-actions {
+  margin-top: 20px;
 }
