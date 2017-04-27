@@ -1,7 +1,21 @@
 <h2 md-dialog-title>Add/Edit Action Link</h2>
 <md-dialog-content>
-
+  <div>
+    <lable for="surface_type">Surface As</label>
+    <md-select id="surface_type" placeholder="Surface As" [(ngModel)]="_editingActionLink.surfaceType">
+      <md-option *ngFor="let surfaceType of _surfaceTypes" [value]="surfaceType">
+        {{surfaceType}}
+      </md-option>
+    </md-select>
+  </div>
+  <div>
+  <md-input-container class="">
+    <input mdInput placeholder="Display Text" [(ngModel)]="">
+  </md-input-container>
+  </div>
 </md-dialog-content>
 <md-dialog-actions>
-
+  <button md-button md-primary>Cancel</button>
+  <div fxFlex></div>
+  <button md-button md-primary>Save</button>
 </md-dialog-actions>

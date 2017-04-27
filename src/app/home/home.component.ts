@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
   }
 
   public _onAddClicked = () => {
-    let dialogRef = this._dialog.open(EditActionLinkComponent, {
-      height: '80vh',
+    const dialogRef = this._dialog.open(EditActionLinkComponent, {
+      height: '50vh',
       width: '80vw',
       disableClose: true
     });
