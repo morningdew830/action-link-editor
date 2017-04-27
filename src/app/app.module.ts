@@ -16,12 +16,14 @@ import { AppRoutingModule } from './app-routing.module';
 // -- App Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { EditActionLinkComponent } from './home/edit-action-link.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    EditActionLinkComponent,
     SidebarComponent
   ],
   imports: [
@@ -38,6 +40,9 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     MaterialModule.forRoot(),
     FlexLayoutModule,
     MdDataTableModule
+  ],
+  entryComponents: [
+    EditActionLinkComponent,
   ],
   providers: [
   ],

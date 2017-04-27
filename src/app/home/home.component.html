@@ -7,7 +7,7 @@
   <md-card-actions>
     <div fxFlex></div>
     <div class="action-group">
-      <button md-mini-fab><md-icon>add</md-icon></button>
+      <button md-mini-fab (click)="_onAddClicked()"><md-icon>add</md-icon></button>
       <button md-mini-fab [disabled]="_disabledDeleteButton"><md-icon>delete</md-icon></button>
     </div>
   </md-card-actions>

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDatatableSelectionEvent, IDatatableSortEvent, IDatatablePaginationEvent } from 'ng2-md-datatable';
+import { MdDialog } from '@angular/material';
+import { EditActionLinkComponent } from './edit-action-link.component';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +18,8 @@ export class HomeComponent implements OnInit {
   private _disabledDeleteButton: boolean = true;
 
   constructor(
-    private router: Router,
-    private _ngZone: NgZone
+    private _ngZone: NgZone,
+    public _dialog: MdDialog
   ) { }
 
   ngOnInit() { }
@@ -29,6 +31,17 @@ export class HomeComponent implements OnInit {
       } else {
         this._disabledDeleteButton = false;
       }
+    });
+  }
+
+  public _onAddClicked = () => {
+    let dialogRef = this._dialog.open(EditActionLinkComponent, {
+      height: '80vh',
+      width: '80vw',
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }
