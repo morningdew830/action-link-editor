@@ -20,8 +20,8 @@
 .radio-group {
   display: inline-flex;
   flex-direction: row;
-  margin: 30px;
-  width: calc(100% - 60px);
+  margin: 30px 0 40px 0;
+  width: 100%;
   .radio-button {
     width: 50%;
   }
