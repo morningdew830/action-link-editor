@@ -13,15 +13,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // -- Routing and App Modules
 import { AppRoutingModule } from './app-routing.module';
 
+// -- App Services
+import { ApiService, AlertService, ActionLinkService } from './services';
+
 // -- App Components
 import { AppComponent } from './app.component';
+import { AlertComponent } from './common/alert/alert.component';
 import { HomeComponent } from './home/home.component';
-import { EditActionLinkComponent } from './home/edit-action-link.component';
+import { EditActionLinkComponent } from './home/edit-actionlink.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AlertComponent,
     HomeComponent,
     EditActionLinkComponent,
     SidebarComponent
@@ -45,6 +50,9 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     EditActionLinkComponent,
   ],
   providers: [
+    ApiService,
+    AlertService,
+    ActionLinkService,
   ],
   bootstrap: [AppComponent]
 })

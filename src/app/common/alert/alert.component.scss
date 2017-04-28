@@ -1,0 +1,40 @@
+.alert {
+    position: relative;
+    margin: 0.5rem 0 1rem 0;
+    background-color: #fff;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+
+    .alert-content {
+        padding: 20px;
+        border-radius: 0 0 2px 2px;
+        p {
+            margin: 0;
+            color: inherit;
+        }
+    }
+
+    button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    &.alert-success {
+        background-color: #E8F5E9 !important;
+        .alert-content, button {
+            color: #4CAF50 !important;
+        }
+    }
+
+    &.alert-danger {
+        background-color: #FFEBEE !important;
+        .alert-content, button {
+            color: #F44336 !important;
+        }
+    }
+}

@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { ActionLink, ViewAction } from '../services/action-link.model';
+import { ActionLink, ViewAction } from '../models/actionlink.model';
 
 @Component({
-  selector: 'app-edit-link',
-  templateUrl: './edit-action-link.component.html',
-  styleUrls: ['./edit-action-link.component.scss']
+  selector: 'app-edit-actionlink',
+  templateUrl: './edit-actionlink.component.html',
+  styleUrls: ['./edit-actionlink.component.scss']
 })
 export class EditActionLinkComponent implements OnInit {
   public _surfaceTypes: string[];
@@ -30,18 +30,6 @@ export class EditActionLinkComponent implements OnInit {
         objectType: 'Page',
         whatToView: '',
         whereToView: 'Same Window'
-      }, {
-        actionType: 'Edit',
-        objectClass: 'specify',
-        objectType: 'Metric',
-        whatToView: '',
-        whereToView: 'New Window'
-      }, {
-        actionType: 'URL',
-        objectClass: 'caller',
-        objectType: 'Chart',
-        whatToView: '',
-        whereToView: 'Same Window'
       }]
     };
   }
@@ -49,9 +37,9 @@ export class EditActionLinkComponent implements OnInit {
   ngOnInit() { }
 
   /**
-   * _onEditActionLinkSubmit
+   * save 
    */
-  public _onEditActionLinkSubmit = () => {
+  public save = () => {
     console.log('submit');
   }
 

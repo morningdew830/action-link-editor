@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Roboto' !important;
-    font-size: 18px !important;
+    font-size: 16px;
 }
 
 .filler {
@@ -24,4 +24,8 @@ body {
 .mat-dialog-actions {
     padding: 0 !important;
     display: inline !important;
+}
+
+.mat-input-element, .mat-radio-label-content, .mat-select-value {
+    font-size: 16px;
 }

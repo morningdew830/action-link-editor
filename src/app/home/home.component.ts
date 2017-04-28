@@ -2,7 +2,9 @@ import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDatatableSelectionEvent, IDatatableSortEvent, IDatatablePaginationEvent } from 'ng2-md-datatable';
 import { MdDialog } from '@angular/material';
-import { EditActionLinkComponent } from './edit-action-link.component';
+import { AlertService, ActionLinkService } from '../services';
+import { ActionLink } from '../models/actionlink.model';
+import { EditActionLinkComponent } from './edit-actionlink.component';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +17,32 @@ export class HomeComponent implements OnInit {
   @Output() sortChange: EventEmitter<IDatatableSortEvent>;
   @Output() paginationChange: EventEmitter<IDatatablePaginationEvent>;
 
+  actionLinks: ActionLink[] = [];
   private _disabledDeleteButton: boolean = true;
 
   constructor(
     private _ngZone: NgZone,
-    public _dialog: MdDialog
+    public _dialog: MdDialog,
+    private _alertService: AlertService,
+    private _actionLinkService: ActionLinkService,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._load();
+  }
+
+  private _load() {
+    this._actionLinkService.getAll().subscribe(
+      actionLinks => { 
+        this.actionLinks = actionLinks;
+        console.log(actionLinks);
+      },
+      error => {
+        const message = error.json();
+        this._alertService.error(message.error);
+      }
+    );
+  }
 
   private _onSelectionChanged = (event: IDatatableSelectionEvent) => {
     this._ngZone.run(() => {
@@ -36,8 +56,8 @@ export class HomeComponent implements OnInit {
 
   public _onAddClicked = () => {
     const dialogRef = this._dialog.open(EditActionLinkComponent, {
-      height: '80vh',
-      width: '50vw',
+      // height: '80vh',
+      width: '640px',
       // disableClose: true
     });
     dialogRef.afterClosed().subscribe(result => {
