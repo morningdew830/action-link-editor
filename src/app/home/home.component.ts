@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { IDatatableSelectionEvent, IDatatableSortEvent, IDatatablePaginationEvent } from 'ng2-md-datatable';
 import { MdDialog } from '@angular/material';
 import { AlertService, ActionLinkService } from '../services';
-import { ActionLink } from '../models/actionlink.model';
+import ActionLink from '../models/actionlink.model';
 import { EditActionLinkComponent } from './edit-actionlink.component';
 
 @Component({

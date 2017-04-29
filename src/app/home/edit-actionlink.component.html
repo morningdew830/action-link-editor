@@ -2,28 +2,57 @@
 
 <md-dialog-content>
 
-  <form #editForm="ngForm" name="editForm">
+  <form #editForm="ngForm" name="editForm" class="dialog-form">
 
     <div class="row">
-      <md-select class="surface-type" #presentation placeholder="Surface As" [(ngModel)]="_actionLink.presentation" name="presentation"
-        required>
-        <md-option *ngFor="let presentation of _presentations" [value]="presentation">
-          {{presentation}}
+      <md-select class="input-medium" #presentation placeholder="Surface As" [(ngModel)]="_actionLink.presentation" name="presentation"
+         (change)="handleChangePresentation()" required>
+        <md-option *ngFor="let presentation of _presentations" [value]="presentation.name">
+          {{presentation.label}}
         </md-option>
       </md-select>
     </div>
 
-    <div class="row">
-      <md-input-container class="display-text">
-        <input mdInput placeholder="Display Text" [(ngModel)]="_actionLink.displayText" name="displayText" required>
+    <div class="row" *ngIf="checkAvailableField('spacePx')">
+      <md-input-container class="input-small">
+        <input mdInput placeholder="Space Pixel" [(ngModel)]="_actionLink.spacePx" name="spacePx" required>
       </md-input-container>
     </div>
 
-    <div class="row">
-      <md-select class="action-type" #actionType placeholder="Action Type" name="actionType">
-        <md-option></md-option>
+    <div class="row" *ngIf="checkAvailableField('textExpr')">
+      <md-input-container class="input-large">
+        <input mdInput placeholder="Display Text" [(ngModel)]="_actionLink.textExpr" name="textExpr" required>
+      </md-input-container>
+    </div>
+
+    <div class="row" *ngIf="checkAvailableField('tooltipExpr')">
+      <md-input-container class="input-large">
+        <input mdInput placeholder="Tootip Text" [(ngModel)]="_actionLink.tooltipExpr" name="tooltipExpr">
+      </md-input-container>
+    </div>
+
+    <div class="row" *ngIf="checkAvailableField('icon')">
+      <md-input-container class="input-small">
+        <input mdInput placeholder="Icon" [(ngModel)]="_actionLink.icon" name="icon">
+      </md-input-container>
+    </div>
+
+    <div class="row" *ngIf="checkAvailableField('align')">
+      <md-input-container class="input-small">
+        <input mdInput placeholder="Align" [(ngModel)]="_actionLink.align" name="align">
+      </md-input-container>
+    </div>
+
+    <div class="row" *ngIf="checkAvailableField('assetGuid')">
+      <md-input-container class="input-medium">
+        <input mdInput placeholder="Asset" [(ngModel)]="_actionLink.assetGuid" name="assetGuid">
+      </md-input-container>
+    </div>
+
+    <div class="row" *ngIf="_actions.length">
+      <md-select class="input-small" #actionType placeholder="Action Type" name="actionType">
         <md-option *ngFor="let actionType of _actions" [value]="actionType">
-          {{actionType}}
+          {{actionType.toUpperCase()}}
         </md-option>
       </md-select>
       <button md-raised-button color="accent" type="button">Create and Configure New Action</button>
@@ -31,35 +60,24 @@
 
     <div class="row">
       <md-tab-group>
-        <md-tab [label]="action.actionType" *ngFor="let action of _actionLink.actions; let i=index;">
+        <md-tab [label]="event" *ngFor="let event of _events; let i=index;">
           <md-card>
             <div class="flex-container" fxLayout="row">
-              <div class="flex-item" fxFlex>
-                <md-select class="object-type" #objectType placeholder="Type of Object" [(ngModel)]="action.objectType" name="objectType{{i}}"
-              required>
-                  <md-option *ngFor="let objectType of _objectTypes" [value]="objectType">
-                    {{objectType}}
-                  </md-option>
-                </md-select>
+              <!--<md-select class="object-type" #objectType placeholder="Type of Object" name="objectType{{i}}" required>
+                <md-option *ngFor="let objectType of _objectTypes" [value]="objectType">
+                  {{objectType}}
+                </md-option>
+              </md-select>
 
-                <md-input-container class="what-view">
-                  <input mdInput placeholder="What to View" [(ngModel)]="action.whatToView" name="whatToView{{i}}" required>
-                </md-input-container>
+              <md-input-container class="what-view">
+                <input mdInput placeholder="What to View" name="whatToView{{i}}" required>
+              </md-input-container>
 
-                <md-select class="view-type" #viewType placeholder="Where to View" [(ngModel)]="action.whereToView" name="whereToView{{i}}"
-                  required>
-                  <md-option *ngFor="let viewType of _viewTypes" [value]="viewType">
-                    {{viewType}}
-                  </md-option>
-                </md-select>
-              </div>
-
-              <div class="flex-item" fxFlex>
-                <md-radio-group class="radio-group" [(ngModel)]="action.objectClass" name="objectClass{{i}}">
-                  <md-radio-button class="radio-button" value="caller">Caller Object</md-radio-button>
-                  <md-radio-button class="radio-button" value="specify">Specify Object</md-radio-button>
-                </md-radio-group>
-              </div>
+              <md-select class="view-type" #viewType placeholder="Where to View" name="whereToView{{i}}" required>
+                <md-option *ngFor="let viewType of _viewTypes" [value]="viewType">
+                  {{viewType}}
+                </md-option>
+              </md-select>-->
             </div>
             <div class="row">
               <div fxFlex></div>
@@ -67,10 +85,6 @@
             </div>
           </md-card>
         </md-tab>
-        <md-tab label="Next Action">
-          <md-card></md-card>
-        </md-tab>
-        <md-tab label="Next Action"><md-card></md-card></md-tab>
       </md-tab-group>
     </div>
   </form>

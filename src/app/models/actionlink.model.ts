@@ -1,20 +1,5 @@
 'use strict';
 
-export class ViewAction {
-  actionType: string;
-  objectClass: string;
-  objectType: string;
-  whatToView: string;
-  whereToView: string;
-};
-
-export class ActionLinkForm {
-  surfaceType: string;
-  displayText: string;
-  actionType: string;
-  actions: ViewAction[];
-};
-
 export type DispatcherAction = {
   assetGuid: string;
   method: string;
@@ -91,8 +76,9 @@ export default class ActionLink {
   dblClick?: Action[];
 };
 
-export const Actions = ['dispatcher', 'jsonForm', 'url', 'component', 'email', 'message'];
-export const Events = ['Click', 'Hover', 'DblClick'];
+export const AllActions = ['dispatcher', 'jsonForm', 'url', 'component', 'email', 'message'];
+export const AllEvents = ['Click', 'Hover', 'DblClick'];
+export const AllFields = ['spacePx', 'align','tooltipExpr', 'textExpr','icon', 'assetGuid'];
 export const WindowMethods = ['Same Window', 'New Window', 'Modal Pop-up'];
 export const DispatchMethods = ['PANEL', 'VIEW_WEB', 'VIEW_PRINT', 
   'EDITOR', 'EXPORT_PDF', 'EXPORT_CSV', 'EXPORT_NATIVE', 'PRETTY_EXCEL', 
@@ -103,7 +89,7 @@ export const DispatchMethods = ['PANEL', 'VIEW_WEB', 'VIEW_PRINT',
 export type Presentation = {
   label: string;
   name: string;
-  fileds: string[];
+  fields: string[];
   actions: string[];
 };
 
@@ -111,37 +97,37 @@ export const Presentations: Presentation[] = [
   {
     label: 'Spacer',
     name: 'spacer',
-    fileds: ['spacePx'],
+    fields: ['spacePx'],
     actions: [],
   },
   {
     label: 'Selector',
     name: 'selector',
-    fileds: ['children', 'align'],
+    fields: ['children', 'align'],
     actions: [],
   },
   {
     label: 'Link',
     name: 'link',
-    fileds: ['tooltipExpr', 'textExpr', 'align'],
-    actions: Actions,
+    fields: ['tooltipExpr', 'textExpr', 'align'],
+    actions: AllActions,
   },
   {
     label: 'Button',
     name: 'button',
-    fileds: ['tooltipExpr', 'textExpr', 'align', 'icon'],
-    actions: Actions,
+    fields: ['tooltipExpr', 'textExpr', 'align', 'icon'],
+    actions: AllActions,
   },
   {
     label: 'Icon',
     name: 'icon',
-    fileds: ['icon', 'align'],
-    actions: Actions,
+    fields: ['icon', 'align'],
+    actions: AllActions,
   },
   {
     label: 'Component',
     name: 'component',
-    fileds: ['componentFnExpr', 'align', 'assetGuid'],
-    actions: Actions,
+    fields: ['componentFnExpr', 'align', 'assetGuid'],
+    actions: AllActions,
   },
 ];

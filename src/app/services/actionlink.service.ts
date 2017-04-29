@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { ActionLink } from '../models/actionlink.model';
+import ActionLink from '../models/actionlink.model';
 
 @Injectable()
 export class ActionLinkService {
