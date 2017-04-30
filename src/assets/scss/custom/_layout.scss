@@ -29,3 +29,42 @@ body {
 .mat-input-element, .mat-radio-label-content, .mat-select-value {
     font-size: 16px;
 }
+
+.mat-tab-group.actions-group {
+    flex-direction: row !important;
+    .mat-tab-header {
+        border: none !important;
+        .mat-tab-label-container {
+            .mat-tab-list {
+                .mat-tab-labels {
+                    display: block !important;
+                    .mat-tab-label {
+                        border: solid 1px rgba(0, 0, 0, 0.3) !important;
+                        border-radius: 5px !important;
+                    }
+                    .mat-tab-label.mat-tab-label-active {
+                        border-bottom: 2px solid #3f51b5 !important;
+                    }
+                }
+                .mat-ink-bar {
+                    visibility: hidden !important;
+                }
+            }
+        }
+    }
+    .mat-tab-body-wrapper {
+        width: 100% !important;
+        min-height: 200px !important;
+        border: solid 1px rgba(0, 0, 0, 0.3) !important;
+        border-radius: 5px !important;
+        padding: 15px !important;
+    }
+}
+
+.mat-tab-body-wrapper {
+    border: solid 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+.inner-card {
+    padding: 10px !important;
+}

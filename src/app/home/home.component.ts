@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   @Output() sortChange: EventEmitter<IDatatableSortEvent>;
   @Output() paginationChange: EventEmitter<IDatatablePaginationEvent>;
 
-  actionLinks: ActionLink[] = [];
+  private _actionLinks: ActionLink[] = [];
   private _disabledDeleteButton: boolean = true;
 
   constructor(
@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
 
   private _load() {
     this._actionLinkService.getAll().subscribe(
-      actionLinks => { 
-        this.actionLinks = actionLinks;
+      actionLinks => {
+        this._actionLinks = actionLinks;
         console.log(actionLinks);
       },
       error => {

@@ -1,29 +1,29 @@
 'use strict';
 
-export type DispatcherAction = {
+export interface DispatcherAction {
   assetGuid: string;
   method: string;
   window: string;
 };
 
-export type JsonFormAction = {
+export interface JsonFormAction {
   formSpec: string;
   window: string;
 };
 
-export type UrlAction = {
+export interface UrlAction {
   urlExpr: string;
   window: string;
 };
 
-type Place = {
+interface Place {
   zoneId: string;
   displacedDisposition: string;
   undoInSecs: number;
   transition: string;
 };
 
-export type ComponentAction = {
+export interface ComponentAction {
   componentId: string;
   method: string;
   load?: any;
@@ -32,7 +32,7 @@ export type ComponentAction = {
   place?: Place;
 };
 
-export type EmailAction = {
+export interface EmailAction {
   emailAddrExpr: string;
   ccEmailAddrExpr?: string;
   bccEmailAddrExpr?: string;
@@ -40,14 +40,14 @@ export type EmailAction = {
   messageExpr: string;
 };
 
-export type MessageAction = {
+export interface MessageAction {
   titleExpr?: string;
   messageExpr: string;
   box?: string;
   window?: string;
 };
 
-export type Action = {
+export interface Action {
   cmdType: string;
   capabilityCode?: string;
   cmdTypeExpr?: string;
@@ -78,15 +78,15 @@ export default class ActionLink {
 
 export const AllActions = ['dispatcher', 'jsonForm', 'url', 'component', 'email', 'message'];
 export const AllEvents = ['Click', 'Hover', 'DblClick'];
-export const AllFields = ['spacePx', 'align','tooltipExpr', 'textExpr','icon', 'assetGuid'];
+export const AllFields = ['spacePx', 'align', 'tooltipExpr', 'textExpr', 'icon', 'assetGuid'];
 export const WindowMethods = ['Same Window', 'New Window', 'Modal Pop-up'];
-export const DispatchMethods = ['PANEL', 'VIEW_WEB', 'VIEW_PRINT', 
-  'EDITOR', 'EXPORT_PDF', 'EXPORT_CSV', 'EXPORT_NATIVE', 'PRETTY_EXCEL', 
-  'EXTERNAL_LINK', 'RUN2CACHE', 'TOOLBAR', 'FOOTER', 'LISTING', 'PROMPTS', 
+export const DispatchMethods = ['PANEL', 'VIEW_WEB', 'VIEW_PRINT',
+  'EDITOR', 'EXPORT_PDF', 'EXPORT_CSV', 'EXPORT_NATIVE', 'PRETTY_EXCEL',
+  'EXTERNAL_LINK', 'RUN2CACHE', 'TOOLBAR', 'FOOTER', 'LISTING', 'PROMPTS',
   'FIND', 'UI_CREATE', 'UI_UPDATE', 'UI_DELETE'
 ];
 
-export type Presentation = {
+export interface Presentation {
   label: string;
   name: string;
   fields: string[];

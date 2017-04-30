@@ -1,8 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import R from 'ramda';
-import ActionLink, { 
-  Presentations, Presentation, AllEvents, AllActions, WindowMethods, DispatchMethods
+import ActionLink, {
+  Action,
+  Presentations,
+  Presentation,
+  AllEvents,
+  AllActions,
+  WindowMethods,
+  DispatchMethods
 } from '../models/actionlink.model';
 
 @Component({
@@ -18,29 +24,30 @@ export class EditActionLinkComponent implements OnInit {
   _windowMethods: string[] = WindowMethods;
   _dispatchMethods: string[] = DispatchMethods;
   _actionLink: ActionLink;
+  _selectedActionType: string;
+  _createdActions: Action;
 
-  constructor( public _dialogRef: MdDialogRef<any> ) {
-    
-  }
+  constructor( public _dialogRef: MdDialogRef<any> ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this._actionLink = new ActionLink();
     this._actionLink.presentation = 'button';
     this.handleChangePresentation();
   }
 
   /**
-   * Change Presentation 
+   * Change Presentation
    */
   handleChangePresentation() {
-    let selectedPresentation: Presentation = R.find(R.propEq('name', this._actionLink.presentation))(this._presentations);
+    const selectedPresentation: Presentation = R.find(R.propEq('name', this._actionLink.presentation))(this._presentations);
 
-    if(this._actionLink.presentation == 'spacer' || this._actionLink.presentation == 'selector')
+    if (this._actionLink.presentation === 'spacer' || this._actionLink.presentation === 'selector') {
       this._events = [];
-    else 
+    } else {
       this._events = AllEvents;
+    }
 
-    if(selectedPresentation) {
+    if (selectedPresentation) {
       this._actions = selectedPresentation.actions;
       this._fields = selectedPresentation.fields;
     }
@@ -54,10 +61,13 @@ export class EditActionLinkComponent implements OnInit {
   }
 
   /**
-   * save 
+   * save
    */
   public save = () => {
     console.log('submit');
   }
 
+  public _onCreateNewActionClicked() {
+
+  }
 }

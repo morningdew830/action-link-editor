@@ -50,19 +50,55 @@
     </div>
 
     <div class="row" *ngIf="_actions.length">
-      <md-select class="input-small" #actionType placeholder="Action Type" name="actionType">
+      <md-select class="input-small" #actionType placeholder="Action Type" name="actionType" [(ngModel)]="_selectedActionType">
         <md-option *ngFor="let actionType of _actions" [value]="actionType">
           {{actionType.toUpperCase()}}
         </md-option>
       </md-select>
-      <button md-raised-button color="accent" type="button">Create and Configure New Action</button>
+      <button md-raised-button color="accent" type="button" (click)="_onCreateNewActionClicked()">Create and Configure New Action</button>
     </div>
 
     <div class="row">
       <md-tab-group>
         <md-tab [label]="event" *ngFor="let event of _events; let i=index;">
-          <md-card>
-            <div class="flex-container" fxLayout="row">
+          <md-card class="inner-card">
+            <div class="row">
+              <md-tab-group class="actions-group">
+                <md-tab label="COMPONENT">
+                  <md-input-container>
+                    <input mdInput name="componentId" placeholder="ComponentId" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="load" placeholder="Load" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="method" placeholder="Method" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="params" placeholder="Params" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="properties" placeholder="Properties" value="">
+                  </md-input-container>
+                </md-tab>
+                <md-tab label="EMAIL">
+                  <md-input-container>
+                    <input mdInput name="bccEmailAddrExpr" placeholder="bccEmailAddrExpr" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="ccEmailAddrExpr" placeholder="ccEmailAddrExpr" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="emailAddrExpr" placeholder="emailAddrExpr" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="messageExpr" placeholder="messageExpr" value="">
+                  </md-input-container>
+                  <md-input-container>
+                    <input mdInput name="subjectExpr" placeholder="subjectExpr" value="">
+                  </md-input-container>
+                </md-tab>
+              </md-tab-group>
               <!--<md-select class="object-type" #objectType placeholder="Type of Object" name="objectType{{i}}" required>
                 <md-option *ngFor="let objectType of _objectTypes" [value]="objectType">
                   {{objectType}}
